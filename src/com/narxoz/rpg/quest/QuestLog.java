@@ -36,6 +36,13 @@ public class QuestLog {
         return new PriorityQuestIterator(this, threshold);
     }
 
+    /**
+     * Iterates quests sorted by reward (highest first), using a snapshot.
+     */
+    public QuestIterator rewardSorted() {
+        return new RewardSortedQuestIterator(this);
+    }
+
     List<Quest> snapshot() {
         return Collections.unmodifiableList(new ArrayList<>(quests));
     }
